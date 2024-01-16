@@ -7,4 +7,6 @@ class ApiResponse {
    }
 }
 
+const res = new ApiResponse(499,{},"",)
+
 export { ApiResponse }
