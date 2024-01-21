@@ -5,6 +5,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const registerUser = asyncHandler(async (req, res) => {
+   // STEPS
    // get user details from frontend
    // do validation of data
    // check if user already exists in db
@@ -15,14 +16,7 @@ const registerUser = asyncHandler(async (req, res) => {
    // check for user creation
    // return res
 
-   // res.json({ok: "ok", user: req.body})
-
    const { fullName, email, username, password } = req.body;
-   // console.log("email", req.body)
-
-   // if([fullName, email, username, password].some((field) => field?.trim()==="")){
-   //    throw new ApiError(400, "All field are required")
-   // }
 
    if(!fullName || !email || !username || !password){
       throw new ApiError(400, "All field are required")
@@ -41,7 +35,6 @@ const registerUser = asyncHandler(async (req, res) => {
    console.log(req.files);
 
    const avatarLoacalPath = req.files?.avatar[0]?.path;
-   // const coverImgLocalPath = req.files?.coverImage[0]?.path;
 
    let coverImgLocalPath;
    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0){
